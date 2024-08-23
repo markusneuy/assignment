@@ -1,0 +1,38 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "NODE_ENV=development npm run build && npm run tscWatch && npm run serverWatch",
+    "lint": "eslint --fix ./src",
+    "tscWatch": "tsc -w & ",
+    "serverWatch": "node --watch dist/server.js | pino-pretty",
+    "createMigration": "drizzle-kit generate --config ./src/drizzle.config.ts",
+    "runMigrations": "node dist/scripts/runMigrations.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "drizzle-orm": "^0.33.0",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "joi": "^17.13.3",
+    "mysql2": "^3.11.0",
+    "pino": "^9.3.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.0",
+    "drizzle-kit": "^0.24.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.9.0",
+    "pino-pretty": "^11.2.2",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
+  }
+}

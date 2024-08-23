@@ -1,0 +1,36 @@
+services:
+  api:
+    build:
+      context: ./api/
+      target: development
+    environment:
+      NODE_ENV: "development"
+      PORT: 8080
+      LOG_LEVEL: debug
+      DB_HOST: db
+      DB_USER: "api"
+      DB_DATABASE: "api"
+      DB_PASSWORD: "apipassword"
+    volumes:
+      - ./api/:/usr/src/app
+    ports:
+      - "8081:8080"
+  fe:
+    build:
+      context: "./client/"
+      target: development
+    volumes:
+      - ./client/:/usr/src/app
+    ports:
+      - "3000:3000"
+  db:
+    image: mysql:9
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "api"
+      MYSQL_USER: "api"
+      MYSQL_PASSWORD: "apipassword"
+    volumes:
+      - ./api/.data/:/var/lib/mysql
+    ports:
+      - "3306:3306"

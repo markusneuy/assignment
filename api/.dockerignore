@@ -1,0 +1,10 @@
+/.git*
+/node_modules
+/dist/*
+.data
+
+.dockerignore
+.editorconfig
+.gitignore
+Dockerfile
+README.md
