@@ -58,6 +58,17 @@ _The use of Material Design is not a requirement!_
 
 ### Backend
 
+The backend has basic setup and entrypoint files in the root `api` folder creating a basic http server and the express app.
+
+The `common` folder contains tools and initializations of externals.
+
+The `modules` folder contains the actual routes and handlers for the users, roles and rights. Those are always split in four parts:
+
+1. `routes` - contains an express router and the assignment to a specific path.
+2. `controller` - contains functions to handle http request.
+3. `service` - contains code to handle operations and persist results.
+4. `schema` - contains the drizzle schema
+
 ### Frontend
 
 The frontend structure follows the vuetify-create scaffolding for a fast setup.
